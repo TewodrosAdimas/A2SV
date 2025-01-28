@@ -102,12 +102,34 @@ This project follows a **Modular** architecture with a focus on separating conce
 ### User Authentication
 
 - **POST** `/users/register/`: Register a new user.
+
+#### Request Body:
+```json
+{
+    "username": "john_doe",
+    "email": "john@example.com",
+    "password": "password123",
+    "password2": "password123"
+}
+
 - **POST** `/users/login/`: Login with JWT authentication and obtain an access token.
+
+{
+    "email": "john@example.com",
+    "password": "password123"
+}
 
 ### Blog Posts
 
 - **GET** `/blogs/`: List all blog posts.
 - **POST** `/blogs/`: Create a new blog post (requires authentication).
+   Request body:
+
+   {
+   "title": "My First Blog Post",
+   "content": "This is the content of my first blog post."
+   }
+
 
 ### Blog Interactions
 
