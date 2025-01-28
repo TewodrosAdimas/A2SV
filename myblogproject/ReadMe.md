@@ -140,6 +140,20 @@ Patch Request: To update a profile
    "content": "This is the content of my first blog post."
    }
 
+update post 
+http://127.0.0.1:8000/blogs/int:pk/update/
+
+methode : PATCH
+{
+  "title": "Updated Blog Post Title"
+}
+
+Delete a Blog Post (DELETE /blog/int:pk/delete/)
+Request:
+Method: DELETE
+URL: http://localhost:8000/blog/1/delete/
+Headers:
+Authorization: Bearer <your_jwt_token>
 
 
 ### Blog Interactions

@@ -4,6 +4,7 @@ from django.contrib.auth import get_user_model
 # Get the user model to associate blog posts with users
 User = get_user_model()
 
+
 class Blog(models.Model):
     title = models.CharField(max_length=255)
     content = models.TextField()
