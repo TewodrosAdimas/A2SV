@@ -2,12 +2,12 @@ from rest_framework import serializers
 from django.contrib.auth import get_user_model
 from django.contrib.auth.password_validation import validate_password
 from rest_framework_simplejwt.tokens import RefreshToken
-from .models import Follow
+from .models import Follow, User
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
-        model = get_user_model()
-        fields = ['id', 'username', 'email', 'name', 'bio', 'profile_picture', 'role']
+        model = User
+        fields = ['id', 'username', 'email', 'bio', 'profile_picture', 'role']
 
 class RegisterSerializer(serializers.ModelSerializer):
     password = serializers.CharField(write_only=True, required=True, validators=[validate_password])

@@ -17,11 +17,9 @@ class CustomUserManager(BaseUserManager):
         extra_fields.setdefault("is_superuser", True)
         return self.create_user(username, email, password, **extra_fields)
 
-
 class User(AbstractBaseUser):
     username = models.CharField(max_length=255, unique=True)
     email = models.EmailField(unique=True)
-    password = models.CharField(max_length=255)
     name = models.CharField(max_length=255)
     bio = models.TextField(blank=True, null=True)
     profile_picture = models.ImageField(upload_to='profile_pics/', blank=True, null=True)
@@ -32,10 +30,13 @@ class User(AbstractBaseUser):
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['username']
 
-    objects = CustomUserManager()
+    objects = CustomUserManager()  # Custom manager for user creation
 
     def __str__(self):
-        return self.username
+        return self.username  # Fix the capitalization here
+
+    def set_password(self, raw_password):
+        super().set_password(raw_password)  # Call the parent class's method
 
 
 class Follow(models.Model):
