@@ -10,5 +10,5 @@ router.register('follow', FollowViewSet, basename='follow')
 
 urlpatterns = [
     path('', include(router.urls)),
-    path('users/update-profile/', UpdateProfileView.as_view(), name='update-profile'),  # Add this line
+    path('update-profile/', UpdateProfileView.as_view(), name='update-profile'),  # Add this line
 ]

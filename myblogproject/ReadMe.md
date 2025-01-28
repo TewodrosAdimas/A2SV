@@ -131,9 +131,8 @@ This project follows a **Modular** architecture with a focus on separating conce
   **Request Body**:
   ```json
   {
-    "bio": "Updated bio text",
-    "profile_picture": "<base64 encoded image data>"
-  }
+    "bio": "Updated bio text"
+      }
   ```
 
 ---
