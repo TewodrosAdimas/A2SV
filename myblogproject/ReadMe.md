@@ -108,8 +108,8 @@ This project follows a **Modular** architecture with a focus on separating conce
 {
     "username": "john_doe",
     "email": "john@example.com",
-    "password": "password123",
-    "password2": "password123"
+    "password": "passreword123",
+    "password2": "passreword123"
 }
 
 - **POST** `/users/login/`: Login with JWT authentication and obtain an access token.

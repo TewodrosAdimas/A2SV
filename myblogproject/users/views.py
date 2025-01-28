@@ -2,11 +2,11 @@ from rest_framework import status, viewsets
 from rest_framework.decorators import action
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
-from rest_framework_simplejwt.tokens import RefreshToken
 from .models import Follow
 from .serializers import UserSerializer, RegisterSerializer, FollowSerializer
 from django.contrib.auth import get_user_model
 from django.contrib.auth import authenticate
+from rest_framework_simplejwt.tokens import RefreshToken
 
 class UserViewSet(viewsets.ModelViewSet):
     queryset = get_user_model().objects.all()
@@ -30,17 +30,25 @@ class RegisterViewSet(viewsets.ViewSet):
             return Response(UserSerializer(user).data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+
 class LoginViewSet(viewsets.ViewSet):
     def create(self, request):
+        # Extract email and password from the request data
         email = request.data.get('email')
         password = request.data.get('password')
-        user = authenticate(request, email=email, password=password)
+        
+        # Authenticate using the email as username
+        user = authenticate(request, username=email, password=password)
+        
         if user is not None:
+            # Generate JWT tokens for the user
             refresh = RefreshToken.for_user(user)
             return Response({
                 'refresh': str(refresh),
                 'access': str(refresh.access_token)
             })
+        
+        # Return error response if authentication fails
         return Response({"detail": "Invalid credentials"}, status=status.HTTP_401_UNAUTHORIZED)
 
 class FollowViewSet(viewsets.ViewSet):

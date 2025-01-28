@@ -132,3 +132,8 @@ REST_FRAMEWORK = {
         "rest_framework_simplejwt.authentication.JWTAuthentication",
     ],
 }
+
+AUTHENTICATION_BACKENDS = [
+    'users.backends.EmailBackend',  # Update with the actual location of your backend
+    'django.contrib.auth.backends.ModelBackend',  # This keeps the default backend intact
+]

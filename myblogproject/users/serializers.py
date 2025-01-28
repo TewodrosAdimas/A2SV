@@ -27,6 +27,8 @@ class RegisterSerializer(serializers.ModelSerializer):
         user = get_user_model().objects.create_user(**validated_data)
         return user
 
+
+
 class FollowSerializer(serializers.ModelSerializer):
     class Meta:
         model = Follow
