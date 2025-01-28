@@ -135,7 +135,7 @@ This project follows a **Modular** architecture with a focus on separating conce
 
 ### Blog Interactions
 
-- **POST** `/blogs/ratings/`: Rate a blog post (requires authentication).
+- **POST** `/interactions/ratings/`: Rate a blog post (requires authentication).
   - Request body:
     ```json
     {
