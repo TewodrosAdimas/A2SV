@@ -139,8 +139,8 @@ This project follows a **Modular** architecture with a focus on separating conce
 
 ### **Blog Posts**
 
-- **GET** `/blogs/`: List all blog posts.
-- **POST** `/blogs/`: Create a new blog post (requires authentication).
+- **GET** `/blog/`: List all blog posts.
+- **POST** `/blog/`: Create a new blog post (requires authentication).
 
   **Request Body**:
   ```json
@@ -151,7 +151,7 @@ This project follows a **Modular** architecture with a focus on separating conce
   }
   ```
 
-- **PATCH** `/blogs/<pk>/update/`: Update a blog post.
+- **PATCH** `/blog/<pk>/update/`: Update a blog post.
 
   **Request Body**:
   ```json
@@ -160,7 +160,7 @@ This project follows a **Modular** architecture with a focus on separating conce
   }
   ```
 
-- **DELETE** `/blogs/<pk>/delete/`: Delete a blog post.
+- **DELETE** `/blog/<pk>/delete/`: Delete a blog post.
 
   **Headers**:
   ```plaintext
