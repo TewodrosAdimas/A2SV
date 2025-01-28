@@ -119,6 +119,15 @@ This project follows a **Modular** architecture with a focus on separating conce
     "password": "password123"
 }
 
+
+Patch Request: To update a profile
+
+{
+  "bio": "Updated bio text",
+  "profile_picture": "<base64 encoded image data>"
+}
+
+
 ### Blog Posts
 
 - **GET** `/blogs/`: List all blog posts.
