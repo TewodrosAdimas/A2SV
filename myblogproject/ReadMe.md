@@ -126,9 +126,11 @@ This project follows a **Modular** architecture with a focus on separating conce
    Request body:
 
    {
+    "author": "1",
    "title": "My First Blog Post",
    "content": "This is the content of my first blog post."
    }
+
 
 
 ### Blog Interactions
